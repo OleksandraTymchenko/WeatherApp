@@ -35,7 +35,7 @@ weatherApp.service('cityService',function(){
 
 //controllers
 
-weatherApp.controller('homeController',['$scope','$route','$location','$resource', '$routeParams', 'cityService',function($scope,$route,$location,$resource, $routeParams,cityService){
+weatherApp.controller('homeController',['$scope','$route','$location','$resource', '$routeParams', 'cityService',function($scope,$route,$location,$resource, $routeParams, cityService){
   $scope.city = cityService.city;
   $scope.days = $routeParams.days || '3';
   $scope.$watch('city',function(){
@@ -77,9 +77,8 @@ weatherApp.controller('homeController',['$scope','$route','$location','$resource
      return Math.round(pressure*0.75006375541921)+' mm';
    };
 
-
-
 }]);
+ 
 
 
 weatherApp.controller('forecastController',['$scope', '$resource', '$routeParams', 'cityService', function($scope, $resource, $routeParams,cityService){

@@ -1,2 +1,16 @@
-/* Styles go here */
+.hero {
+  
+  background: url("../../img/bg.jpg") no-repeat center center;
+  background-size: cover;/* Styles go here */
+  box-sizing: border-box;
+}
 
+.mr {
+	margin-top: 150px;
+	margin-bottom: 150px;
+}
+
+.currentW {
+	color: blue;
+	font-size:20px;
+}
