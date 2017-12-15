@@ -35,9 +35,9 @@ weatherApp.service('cityService',function(){
 
 //controllers
 
-weatherApp.controller('homeController',['$scope','$route','$location','$resource', '$routeParams', 'cityService',function($scope,$route,$location,$resource, $routeParams,cityService){
+weatherApp.controller('homeController',['$scope','$route','$location','$resource', '$routeParams', 'cityService',function($scope,$route,$location,$resource, $routeParams, cityService){
   $scope.city = cityService.city;
-  $scope.days = $routeParams.days || '3';
+  $scope.days = $routeParams.days || '5';
   $scope.$watch('city',function(){
   cityService.city = $scope.city;
   });
@@ -62,7 +62,7 @@ weatherApp.controller('homeController',['$scope','$route','$location','$resource
    $scope.convertTommHg = function(pressure){
      return Math.round(pressure*0.75006375541921)+' mm';
    };
-
+   
     $scope.weatherAPI1 = 
   $resource ( "http://api.openweathermap.org/data/2.5/weather?q="+$scope.city+"&appid="+apiKey,{
    callback: "JSON_CALLBACK"}, {get: {method: "JSONP"}});
@@ -77,9 +77,8 @@ weatherApp.controller('homeController',['$scope','$route','$location','$resource
      return Math.round(pressure*0.75006375541921)+' mm';
    };
 
-
-
 }]);
+ 
 
 
 weatherApp.controller('forecastController',['$scope', '$resource', '$routeParams', 'cityService', function($scope, $resource, $routeParams,cityService){

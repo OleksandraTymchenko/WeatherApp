@@ -1,30 +1,25 @@
-<div class="row">
-<div class="col-md-6 col-md-offset-3">
+<div class="hero">
+           <div class="currentW ">
+           <span> CURRENT WEATHER: {{convertToDay(weatherResult1.dt)  | date:"EEE dd/MM/yyyy 'at' h:mma"}}</span>
+            <span>Temperature:{{convertToCelsius(weatherResult1.main.temp)}}<img src= http://openweathermap.org/img/w/{{weatherResult1.weather[0].icon}}.png></span>
+            <span>Humidity:{{weatherResult1.main.humidity}}%</span>
+            <span>Pressure:{{convertTommHg(weatherResult1.main.pressure)}}</span>
+            <span>Wind speed: {{weatherResult1.wind.speed}} m/c</span>
+            <span>{{weatherResult1.weather[0].description}}</span>
+            </div>   
+  <div class="row">
+  <div class="col-md-6 col-md-offset-3 mr">
   <h3>City Forecast</h3>
   <form ng-submit="submit()">
-  <div class="form-group">
-  <input type="text" ng-model="city" class="form-control">
-  </div>
+    <div class="form-group">
+     <input type="text" ng-model="city" class="form-control">
+     </div>
   <input type="submit" value="Get Forecast" ng-click="reloadRoute()" class="btn btn-primary"/>
+  <a href="#/forecast" class="btn btn-primary">Hours forecast</a>
   </form>
-
-</div>
-</div>
-<div class="row">
-        <div class="col-md-12">
-          <div class="panel panel-default" >
-            <div class="panel-heading">
-              <h3 class="panel-title">  {{convertToDay(weatherResult1.dt)  | date:"EEE dd/MM/yyyy 'at' h:mma"}}</h3>
-            </div>
-            <div class="panel-body">Temperature:{{convertToCelsius(weatherResult1.main.temp)}}<img src= http://openweathermap.org/img/w/{{weatherResult1.weather[0].icon}}.png>
-            <div>Humidity:{{weatherResult1.main.humidity}}%</div><br/>
-            <div>Pressure:{{convertTommHg(weatherResult1.main.pressure)}}</div><br/>
-            <div>Wind speed: {{weatherResult1.wind.speed}} m/c</div>
-            <div>{{weatherResult1.weather[0].description}}</div>
-            </div>
-         </div>
-        </div>
-    </div>
+ </div>
+ </div>     
+</div>    
  Days: <a href="#/home/2" ng-class="{'bg-primary':days ==='2'}">2</a> | <a href="#/home/5" ng-class="{'bg-primary':days ==='5'}">5</a> |  <a href="#/home/7" ng-class="{'bg-primary':days ==='7'}">7</a> | <a href="#/home/10" ng-class="{'bg-primary':days ==='10'}">10</a> |  <a href="#/home/16" ng-class="{'bg-primary':days ==='16'}">16</a> 
     <hr />
 <div ng-repeat="w in weatherResult.list">
@@ -43,19 +38,5 @@
         </div>
       </div>
     </div>
-  <div class="row">
-        <div class="col-md-12">
-          <div class="panel panel-default" >
-            <div class="panel-heading">
-              <h3 class="panel-title">  {{convertToDay(weatherResult1.dt)  | date:"EEE dd/MM/yyyy 'at' h:mma"}}</h3>
-            </div>
-            <div class="panel-body">Temperature:{{convertToCelsius(weatherResult1.main.temp)}}<img src= http://openweathermap.org/img/w/{{weatherResult1.weather[0].icon}}.png>
-            <div>Humidity:{{weatherResult1.main.humidity}}%</div><br/>
-            <div>Pressure:{{convertTommHg(weatherResult1.main.pressure)}}</div><br/>
-            <div>Wind speed: {{weatherResult1.wind.speed}} m/c</div>
-            <div>{{weatherResult1.weather[0].description}}</div>
-            </div>
-         </div>
-        </div>
-    </div>
-    <a href="#/forecast">Hours forecast</a>
+ 
+    
