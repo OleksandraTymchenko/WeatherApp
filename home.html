@@ -1,6 +1,6 @@
 <div class="hero">
            <div class="currentW ">
-           <span>  {{convertToDay(weatherResult1.dt)  | date:"EEE dd/MM/yyyy 'at' h:mma"}}</span>
+           <span> CURRENT WEATHER: {{convertToDay(weatherResult1.dt)  | date:"EEE dd/MM/yyyy 'at' h:mma"}}</span>
             <span>Temperature:{{convertToCelsius(weatherResult1.main.temp)}}<img src= http://openweathermap.org/img/w/{{weatherResult1.weather[0].icon}}.png></span>
             <span>Humidity:{{weatherResult1.main.humidity}}%</span>
             <span>Pressure:{{convertTommHg(weatherResult1.main.pressure)}}</span>
@@ -15,6 +15,7 @@
      <input type="text" ng-model="city" class="form-control">
      </div>
   <input type="submit" value="Get Forecast" ng-click="reloadRoute()" class="btn btn-primary"/>
+  <a href="#/forecast" class="btn btn-primary">Hours forecast</a>
   </form>
  </div>
  </div>     
@@ -37,19 +38,5 @@
         </div>
       </div>
     </div>
-  <div class="row">
-        <div class="col-md-12">
-          <div class="panel panel-default" >
-            <div class="panel-heading">
-              <h3 class="panel-title">  {{convertToDay(weatherResult1.dt)  | date:"EEE dd/MM/yyyy 'at' h:mma"}}</h3>
-            </div>
-            <div class="panel-body">Temperature:{{convertToCelsius(weatherResult1.main.temp)}}<img src= http://openweathermap.org/img/w/{{weatherResult1.weather[0].icon}}.png>
-            <div>Humidity:{{weatherResult1.main.humidity}}%</div><br/>
-            <div>Pressure:{{convertTommHg(weatherResult1.main.pressure)}}</div><br/>
-            <div>Wind speed: {{weatherResult1.wind.speed}} m/c</div>
-            <div>{{weatherResult1.weather[0].description}}</div>
-            </div>
-         </div>
-        </div>
-    </div>
-    <a href="#/forecast">Hours forecast</a>
+ 
+    
