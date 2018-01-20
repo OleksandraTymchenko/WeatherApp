@@ -35,9 +35,9 @@ weatherApp.service('cityService',function(){
 
 //controllers
 
-weatherApp.controller('homeController',['$scope','$route','$location','$resource', '$routeParams', 'cityService',function($scope,$route,$location,$resource, $routeParams, cityService){
+weatherApp.controller('homeController',['$scope','$route','$location','$resource', '$routeParams', 'cityService',function($scope , $route,$location,$resource, $routeParams, cityService){
   $scope.city = cityService.city;
-  $scope.days = $routeParams.days || '5';
+  $scope.days = $routeParams.days || '6';
   $scope.$watch('city',function(){
   cityService.city = $scope.city;
   });
@@ -57,7 +57,7 @@ weatherApp.controller('homeController',['$scope','$route','$location','$resource
      return new Date(dt*1000);
    };
    $scope.convertToCelsius= function(degK){
-     return Math.round(degK-273.15) +" °C";
+     return Math.round(degK-273.15) ;
    };
    $scope.convertTommHg = function(pressure){
      return Math.round(pressure*0.75006375541921)+' mm';
@@ -71,12 +71,14 @@ weatherApp.controller('homeController',['$scope','$route','$location','$resource
      return new Date(dt*1000);
    };
    $scope.convertToCelsius= function(degK){
-     return Math.round(degK-273.15) +" °C";
+     return Math.round(degK-273.15) ;
    };
    $scope.convertTommHg = function(pressure){
      return Math.round(pressure*0.75006375541921)+' mm';
    };
-
+   
+console.log($scope.weatherResult1);
+ 
 }]);
  
 
@@ -102,6 +104,10 @@ weatherApp.controller('forecastController',['$scope', '$resource', '$routeParams
   
 
 }]);
+
+
+
+
 
 
 
