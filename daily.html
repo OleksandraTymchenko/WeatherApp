@@ -8,21 +8,17 @@
       <div class="wrap">
         <div class="col-md-2">
           <div class="panel panel-default border bg-forth">
-
             <div class="panel-heading border_top bg-forth">
-              <h3 class="panel-title h5">  {{convertToDay(w.dt) | date: "EEE  MMM d, y"}}</h3>
+              <div class="panel-title h5">  {{convertToDay(w.dt) | date: "EEE  MMM d, y"}}</div>
             </div>
-
             <div class="panel-body border_down bg-third">
-              <div>Temperature:{{convertToCelsius(w.temp.day)}} / {{convertToCelsius(w.temp.night)}} °C  <img src= http://openweathermap.org/img/w/{{w.weather[0].icon}}.png></div>
-            <div>Humidity:{{w.humidity}}%</div><br/>
-            <div>Pressure:{{convertTommHg(w.pressure)}}</div><br/>
+              <div>Temperature: {{convertToCelsius(w.temp.day)}} / {{convertToCelsius(w.temp.night)}} °C  <img src= http://openweathermap.org/img/w/{{w.weather[0].icon}}.png></div>
+            <div>Humidity: {{w.humidity}}%</div><br/>
+            <div>Pressure: {{convertTommHg(w.pressure)}}</div><br/>
             <div>Wind speed: {{w.speed}} m/c</div>
             </div>
-
           </div>
         </div>
       </div>
     </div>
-    
    </div>

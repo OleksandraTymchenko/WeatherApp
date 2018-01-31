@@ -10,21 +10,11 @@ weatherApp.config(function($routeProvider) {
     controller: 'homeController'
   })
 
-     .when('/home/:days', {
-    templateUrl: 'home.html',
-    controller: 'homeController'
-  })
-
-   .when('/forecast', {
-    templateUrl: 'forecast.html',
-    controller: 'forecastController'
+   .when('/hours', {
+    templateUrl: 'hours.html',
+    controller: 'hoursController'
   })
   
-   .when('/forecast/:days', {
-    templateUrl: 'forecast.html',
-    controller: 'forecastController'
-  })
-
     .when('/daily', {
     templateUrl: 'daily.html',
     controller: 'dailyController'
@@ -88,7 +78,7 @@ console.log($scope.weatherResult1);
  
 
 
-weatherApp.controller('forecastController',['$scope', '$resource', '$routeParams', 'cityService', function($scope, $resource, $routeParams,cityService){
+weatherApp.controller('hoursController',['$scope', '$resource', '$routeParams', 'cityService', function($scope, $resource, $routeParams,cityService){
   $scope.city = cityService.city;
   $scope.days = $routeParams.days || '12';
 
