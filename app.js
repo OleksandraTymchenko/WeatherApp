@@ -45,7 +45,7 @@ weatherApp.controller('homeController',['$scope','$route','$location','$resource
 }
    var apiKey = "bd5e378503939ddaee76f12ad7a97608";
   $scope.weatherAPI = 
-  $resource ( "http://api.openweathermap.org/data/2.5/forecast/daily?q="+$scope.city+"&appid="+apiKey,{
+  $resource ( "https://api.openweathermap.org/data/2.5/forecast/daily?q="+$scope.city+"&appid="+apiKey,{
    callback: "JSON_CALLBACK"}, {get: {method: "JSONP"}});
    $scope.weatherResult = $scope.weatherAPI.get({q: $scope.city,appid: apiKey, cnt: $scope.days });
    $scope.convertToDay = function(dt){
@@ -59,7 +59,7 @@ weatherApp.controller('homeController',['$scope','$route','$location','$resource
    };
    
     $scope.weatherAPI1 = 
-  $resource ( "http://api.openweathermap.org/data/2.5/weather?q="+$scope.city+"&appid="+apiKey,{
+  $resource ( "https://api.openweathermap.org/data/2.5/weather?q="+$scope.city+"&appid="+apiKey,{
    callback: "JSON_CALLBACK"}, {get: {method: "JSONP"}});
    $scope.weatherResult1 = $scope.weatherAPI1.get({q: $scope.city,appid: apiKey, cnt: $scope.days });
    $scope.convertToDay = function(dt){
@@ -84,7 +84,7 @@ weatherApp.controller('hoursController',['$scope', '$resource', '$routeParams', 
 
   var apiKey = "bd5e378503939ddaee76f12ad7a97608";
   $scope.weatherAPI = 
-  $resource ( "http://api.openweathermap.org/data/2.5/forecast?q="+$scope.city+"&appid="+apiKey,{
+  $resource ( "https://api.openweathermap.org/data/2.5/forecast?q="+$scope.city+"&appid="+apiKey,{
    callback: "JSON_CALLBACK"}, {get: {method: "JSONP"}});
    $scope.weatherResult = $scope.weatherAPI.get({q: $scope.city,appid: apiKey, cnt: $scope.days });
    $scope.convertToDay = function(dt){
@@ -108,7 +108,7 @@ weatherApp.controller('dailyController',['$scope', '$resource', '$routeParams', 
   });
    var apiKey = "bd5e378503939ddaee76f12ad7a97608";
   $scope.weatherAPI = 
-  $resource ( "http://api.openweathermap.org/data/2.5/forecast/daily?q="+$scope.city+"&appid="+apiKey,{
+  $resource ( "https://api.openweathermap.org/data/2.5/forecast/daily?q="+$scope.city+"&appid="+apiKey,{
    callback: "JSON_CALLBACK"}, {get: {method: "JSONP"}});
    $scope.weatherResult = $scope.weatherAPI.get({q: $scope.city,appid: apiKey, cnt: $scope.days });
    $scope.convertToDay = function(dt){
