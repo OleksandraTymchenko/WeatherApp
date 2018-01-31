@@ -1,0 +1,28 @@
+<div class="wrap">
+<div class="row m-1">
+<div class="col-md-6 h2"> Daily forecast for {{city | uppercase}}</div> <div class="col-md-2 col-md-offset-4"><a class="btn" href="#/">Back to search</a> </div>
+</div>
+</div>
+
+   <div ng-repeat="w in weatherResult.list">
+      <div class="wrap">
+        <div class="col-md-2">
+          <div class="panel panel-default border bg-forth">
+
+            <div class="panel-heading border_top bg-forth">
+              <h3 class="panel-title h5">  {{convertToDay(w.dt) | date: "EEE  MMM d, y"}}</h3>
+            </div>
+
+            <div class="panel-body border_down bg-third">
+              <div>Temperature:{{convertToCelsius(w.temp.day)}} / {{convertToCelsius(w.temp.night)}} °C  <img src= http://openweathermap.org/img/w/{{w.weather[0].icon}}.png></div>
+            <div>Humidity:{{w.humidity}}%</div><br/>
+            <div>Pressure:{{convertTommHg(w.pressure)}}</div><br/>
+            <div>Wind speed: {{w.speed}} m/c</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    
+   </div>

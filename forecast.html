@@ -10,7 +10,7 @@
         <div class="col-md-2">
           <div class="panel panel-default border bg-forth" >
             <div class="panel-heading border_top bg-forth">
-              <h3 class="panel-title ">  {{convertToDay(w.dt)  | date:"EEE dd/MM/yyyy 'at' h:mma"}}</h3>
+              <h3 class="panel-title h5">  {{convertToDay(w.dt)  | date:"EEE dd/MM/yyyy 'at' h:mma"}}</h3>
             </div>
             <div class="panel-body border_down bg-third">Temperature:{{convertToCelsius(w.main.temp_min)}} / {{convertToCelsius(w.main.temp_max)}}  <img src= http://openweathermap.org/img/w/{{w.weather[0].icon}}.png>
             <div>Humidity:{{w.main.humidity}}%</div><br/>

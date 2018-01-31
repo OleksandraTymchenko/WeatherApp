@@ -1,0 +1,99 @@
+// ---------------------------
+// Helper classes
+// ---------------------------
+
+.cf {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+// Aligning Elements
+// -------------------------
+
+.center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+
+
+// Background Colors
+// -------------------------
+
+.bg-first{
+  &.bg-first{
+    background-color: $first;
+  }
+}
+
+.bg-second{
+  &.bg-second{
+    background-color: $second;
+  }
+}
+
+.bg-third{
+  &.bg-third{
+    background-color: $third;
+  }
+}
+.bg-forth{
+  &.bg-forth{
+    background-color: $forth;
+  }
+}
+
+
+// Cursor
+// -------------------------
+
+.pointer {
+  cursor: pointer;
+}
+
+// Margins
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mb-3 {
+  margin-bottom: 3rem;
+}
+
+.mb-4 {
+  margin-bottom: 4rem;
+}
+
+
+.m-1{
+  margin: 1rem;
+}
+
+
+.border {
+  border: 2px solid $second;
+  font-size: 1.4rem;
+  border-radius: 3rem;
+  font-weight: bold;
+  }
+
+.border_top {
+  border-radius: 3rem  3rem  0 0 ;
+
+  } 
+
+.border_down {
+  border-top: 2px solid $second;
+  font-size: 1.4rem;
+  border-radius: 0 0 3rem  3rem ;
+  font-family: "Merriweather";
+  }  
