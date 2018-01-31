@@ -1,0 +1,28 @@
+.btn {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  color: white;
+  background: transparent;
+  background: $first;
+  padding: 1.5rem 3rem;
+  border: 2px solid  $second;
+  width: auto;
+  border-radius: 4rem;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  display: inline-block;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  &:hover {
+    background: $first;
+  }
+
+  @media (max-width: $screen-xs){
+    width: 100%;
+  }
+
+}
+
+
+
