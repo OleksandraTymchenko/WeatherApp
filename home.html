@@ -4,18 +4,18 @@
   
        <div class="col-md-4 text-center section">
           <p class='h2'><b> {{convertToDay(weatherResult1.dt)  | date:"EEE dd/MM/yyyy 'at' h:mma"}}</b></p>
-          <p class='h1'>{{city | uppercase}}</p>
+          <p class='h1' id="button">{{city | uppercase}}</p>
             <p class='h1'>{{convertToCelsius(weatherResult1.main.temp)}}<img src= http://openweathermap.org/img/w/{{weatherResult1.weather[0].icon}}.png></p> 
           
           </div>
   
-    <div class="col-md-4 text-center section" >
-                     <p class='h2 mb-3'><strong>City Forecast</strong></p>
+    <div class="col-md-4 center section" >
+                     <p class='h2 mb-3 text-center'><strong>City Forecast</strong></p>
                      <form ng-submit="submit()" >
                      <div class="form-group mb-4">
-                     <input type="text" ng-model="city" class="form-control mb-2 text-uppercase border" >
+                     <input type="text" ng-model="city" class="form-control mb-2 text-uppercase border" onfocus="this.value=''">
                     <input type="submit" value="Get Forecast" ng-click="reloadRoute()" class="btn"/>
-                    <a href="#/forecast" class="btn">Hours forecast</a>
+                    <a href="#/forecast" class="btn col-md-offset-2">Hours forecast</a>
                      </div>
                      </form>
                      </div>
@@ -29,21 +29,21 @@
 
          </div> 
 
-
+           
             
          <div class="cf"></div>
+         
 
-        Days: <a href="#/home/2" class='btn' ng-class="{'btn': days ==='2'}">more days</a> | <a href="#/home/5" ng-class="{'bg-primary':days ==='5'}">5</a> |  <a href="#/home/7" ng-class="{'bg-primary':days ==='7'}">7</a> | <a href="#/home/10" ng-class="{'bg-primary':days ==='10'}">10</a> |  <a href="#/home/16" ng-class="{'bg-primary':days ==='16'}">16</a>
     <div ng-repeat="w in weatherResult.list">
-      <div class="main">
+      <div class="wrap">
         <div class="col-md-2">
-          <div class="panel panel-default">
+          <div class="panel panel-default border">
 
-            <div class="panel-heading">
-              <h3 class="panel-title ">  {{convertToDay(w.dt) | date: "EEE  MMM d, y"}}</h3>
+            <div class="panel-heading border_top">
+              <h3 class="panel-title  h5">  {{convertToDay(w.dt) | date: "EEE  MMM d, y"}}</h3>
             </div>
 
-            <div class="panel-body">
+            <div class="panel-body border_down">
               <div>Temperature:{{convertToCelsius(w.temp.day)}} / {{convertToCelsius(w.temp.night)}} °C  <img src= http://openweathermap.org/img/w/{{w.weather[0].icon}}.png></div>
             <div>Humidity:{{w.humidity}}%</div><br/>
             <div>Pressure:{{convertTommHg(w.pressure)}}</div><br/>
@@ -54,11 +54,13 @@
         </div>
       </div>
     </div>
-      
-</div>
+ 
+    <div class="col-md-2 col-md-offset-10"><a href="#/daily" class="btn">more days</a> </div>
+ 
+   
 </div>
 
-      
+</div>
 
 
 
