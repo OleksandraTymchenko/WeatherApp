@@ -24,6 +24,11 @@ weatherApp.config(function($routeProvider) {
     templateUrl: 'forecast.html',
     controller: 'forecastController'
   })
+
+    .when('/daily', {
+    templateUrl: 'daily.html',
+    controller: 'dailyController'
+  })
   
 });
 
@@ -35,7 +40,7 @@ weatherApp.service('cityService',function(){
 
 //controllers
 
-weatherApp.controller('homeController',['$scope','$route','$location','$resource', '$routeParams', 'cityService',function($scope , $route,$location,$resource, $routeParams, cityService){
+weatherApp.controller('homeController',['$scope','$route','$location','$resource', '$routeParams', 'cityService',function( $scope , $route, $location, $resource, $routeParams, cityService){
   $scope.city = cityService.city;
   $scope.days = $routeParams.days || '6';
   $scope.$watch('city',function(){
@@ -85,7 +90,7 @@ console.log($scope.weatherResult1);
 
 weatherApp.controller('forecastController',['$scope', '$resource', '$routeParams', 'cityService', function($scope, $resource, $routeParams,cityService){
   $scope.city = cityService.city;
-  $scope.days = $routeParams.days || '1';
+  $scope.days = $routeParams.days || '12';
 
   var apiKey = "bd5e378503939ddaee76f12ad7a97608";
   $scope.weatherAPI = 
@@ -105,8 +110,29 @@ weatherApp.controller('forecastController',['$scope', '$resource', '$routeParams
 
 }]);
 
+weatherApp.controller('dailyController',['$scope', '$resource', '$routeParams', 'cityService', function($scope, $resource, $routeParams,cityService){
+  $scope.city = cityService.city;
+  $scope.days = $routeParams.days || '12';
+  $scope.$watch('city',function(){
+  cityService.city = $scope.city;
+  });
+   var apiKey = "bd5e378503939ddaee76f12ad7a97608";
+  $scope.weatherAPI = 
+  $resource ( "http://api.openweathermap.org/data/2.5/forecast/daily?q="+$scope.city+"&appid="+apiKey,{
+   callback: "JSON_CALLBACK"}, {get: {method: "JSONP"}});
+   $scope.weatherResult = $scope.weatherAPI.get({q: $scope.city,appid: apiKey, cnt: $scope.days });
+   $scope.convertToDay = function(dt){
+     return new Date(dt*1000);
+   };
+   $scope.convertToCelsius= function(degK){
+     return Math.round(degK-273.15) ;
+   };
+   $scope.convertTommHg = function(pressure){
+     return Math.round(pressure*0.75006375541921)+' mm';
+   };
+  
 
-
+}]);
 
 
 
