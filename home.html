@@ -13,9 +13,10 @@
                      <p class='h2 mb-3 text-center'><strong>City Forecast</strong></p>
                      <form ng-submit="submit()" >
                      <div class="form-group mb-4">
-                     <input type="text" ng-model="city" class="form-control mb-2 text-uppercase border" onfocus="this.value=''">
+                     <input type="text" ng-model="city" class="form-control mb-2 text-uppercase border" onfocus="this.value=''"> 
+                    <a href="#/daily" class="btn">Daily</a>
                     <input type="submit" value="Get Forecast" ng-click="reloadRoute()" class="btn"/>
-                    <a href="#/forecast" class="btn col-md-offset-2">Hours forecast</a>
+                    <a href="#/forecast" class="btn col-md-offset-2">Hours</a>
                      </div>
                      </form>
                      </div>
@@ -36,7 +37,7 @@
 
     <div ng-repeat="w in weatherResult.list">
       <div class="wrap">
-        <div class="col-md-2">
+        <div class="col-md-2 mb-1">
           <div class="panel panel-default border">
 
             <div class="panel-heading border_top">
@@ -54,8 +55,6 @@
         </div>
       </div>
     </div>
- 
-    <div class="col-md-2 col-md-offset-10"><a href="#/daily" class="btn">more days</a> </div>
  
    
 </div>
